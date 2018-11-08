@@ -1,6 +1,7 @@
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -40,7 +41,21 @@ public class AccountShould {
 
         verify(repository).addWithdraw(2000);
     }
-    
+
+    @Test
+    public void print_the_transactions(){
+        List<Transaction> transactions = new ArrayList<>();
+        Device console = new Console();
+        Printer printer = Mockito.mock(Printer.class);
+        Clock clock = new Clock();
+        Repository repository = new InMemoryRepository(clock);
+        Account account = new Account(printer, repository);
+
+        account.print();
+
+        verify(printer).print(transactions);
+    }
+
 
 
 }
