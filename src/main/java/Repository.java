@@ -5,4 +5,5 @@ public interface Repository {
 
     void addDeposit(int amount);
 
+    void addWithdraw(int amount);
 }

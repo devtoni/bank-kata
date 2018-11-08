@@ -20,4 +20,9 @@ public class InMemoryRepository implements Repository {
     public void addDeposit(int amount) {
        transactions.add(new Transaction(amount, clock.getTransactionDate()));
     }
+
+    @Override
+    public void addWithdraw(int amount) {
+
+    }
 }
