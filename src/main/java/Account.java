@@ -1,9 +1,11 @@
+import java.util.List;
+
 public class Account {
-    private final Printer console;
+    private final Printer printer;
     private final Repository repository;
 
-    public Account(Printer console, Repository repository) {
-        this.console = console;
+    public Account(Printer printer, Repository repository) {
+        this.printer = printer;
         this.repository = repository;
     }
 
@@ -16,5 +18,7 @@ public class Account {
     }
 
     public void print() {
+        List<Transaction> transactions = repository.getAllTransactions();
+        printer.print(transactions);
     }
 }
